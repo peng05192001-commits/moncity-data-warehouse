@@ -1,0 +1,221 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="2400" height="1580" viewBox="0 0 2400 1580" role="img" aria-labelledby="title desc">
+  <title id="title">MonCity Operational Database ERD</title>
+  <desc id="desc">Operational entity relationship diagram for the twelve MonCity source tables.</desc>
+  <defs>
+    <filter id="shadow" x="-10%" y="-10%" width="120%" height="130%">
+      <feDropShadow dx="0" dy="4" stdDeviation="6" flood-color="#0f172a" flood-opacity="0.14"/>
+    </filter>
+    <style>
+      .canvas { fill: #f8fafc; }
+      .panel { fill: #ffffff; stroke: #cbd5e1; stroke-width: 2; rx: 14; filter: url(#shadow); }
+      .head-blue { fill: #1d4ed8; }
+      .head-teal { fill: #0f766e; }
+      .head-orange { fill: #c2410c; }
+      .head-slate { fill: #334155; }
+      .table-title { fill: #ffffff; font: 700 25px 'Segoe UI', Arial, sans-serif; letter-spacing: .3px; }
+      .field { fill: #1e293b; font: 20px 'Segoe UI', Arial, sans-serif; }
+      .key { fill: #0f172a; font: 700 19px 'Segoe UI', Arial, sans-serif; }
+      .type { fill: #64748b; font: 17px 'Segoe UI', Arial, sans-serif; }
+      .divider { stroke: #e2e8f0; stroke-width: 1.5; }
+      .rel { fill: none; stroke: #475569; stroke-width: 3; stroke-linecap: round; stroke-linejoin: round; }
+      .rel-label { fill: #334155; font: 700 18px 'Segoe UI', Arial, sans-serif; paint-order: stroke; stroke: #f8fafc; stroke-width: 7; stroke-linejoin: round; }
+      .title { fill: #0f172a; font: 800 39px 'Segoe UI', Arial, sans-serif; }
+      .subtitle { fill: #475569; font: 21px 'Segoe UI', Arial, sans-serif; }
+      .legend { fill: #334155; font: 18px 'Segoe UI', Arial, sans-serif; }
+      .domain { fill: none; stroke-width: 2; stroke-dasharray: 10 9; rx: 22; }
+      .domain-label { font: 700 20px 'Segoe UI', Arial, sans-serif; }
+      .note { fill: #fff7ed; stroke: #fdba74; stroke-width: 2; rx: 12; }
+      .note-text { fill: #9a3412; font: 19px 'Segoe UI', Arial, sans-serif; }
+    </style>
+  </defs>
+
+  <rect class="canvas" x="0" y="0" width="2400" height="1580"/>
+  <text class="title" x="70" y="65">MonCity Operational Database — Entity Relationship Diagram</text>
+  <text class="subtitle" x="70" y="102">Source schema used for exploration, cleaning, and dimensional warehouse design</text>
+  <g transform="translate(1590 46)">
+    <rect x="0" y="0" width="730" height="68" rx="12" fill="#ffffff" stroke="#cbd5e1" stroke-width="2"/>
+    <text class="legend" x="24" y="29"><tspan class="key">PK</tspan><tspan dx="6">primary key</tspan><tspan dx="28" class="key">FK</tspan><tspan dx="6">foreign key</tspan></text>
+    <text class="legend" x="24" y="55"><tspan class="key">1</tspan><tspan dx="6">one</tspan><tspan dx="28" class="key">0..*</tspan><tspan dx="6">zero or many</tspan><tspan dx="28">junction tables resolve M:N relationships</tspan></text>
+  </g>
+
+  <rect class="domain" x="35" y="135" width="1360" height="690" stroke="#93c5fd"/>
+  <text class="domain-label" x="58" y="167" fill="#1d4ed8">BOOKING DOMAIN</text>
+  <rect class="domain" x="1395" y="135" width="970" height="890" stroke="#99f6e4"/>
+  <text class="domain-label" x="1418" y="167" fill="#0f766e">MAINTENANCE DOMAIN</text>
+  <rect class="domain" x="930" y="1040" width="1435" height="450" stroke="#fdba74"/>
+  <text class="domain-label" x="953" y="1072" fill="#c2410c">ACCIDENT DOMAIN</text>
+
+  <!-- Relationships are placed behind the table cards. -->
+  <path class="rel" d="M225 350 V470"/>
+  <text class="rel-label" x="238" y="378">1</text><text class="rel-label" x="238" y="456">0..*</text>
+  <path class="rel" d="M410 600 H490"/>
+  <text class="rel-label" x="420" y="588">1</text><text class="rel-label" x="447" y="588">0..*</text>
+  <path class="rel" d="M880 628 H1000"/>
+  <text class="rel-label" x="889" y="615">0..*</text><text class="rel-label" x="974" y="615">1</text>
+
+  <path class="rel" d="M1350 620 H1405 V400 H1450"/>
+  <text class="rel-label" x="1361" y="608">1</text><text class="rel-label" x="1415" y="391">0..*</text>
+  <path class="rel" d="M1870 333 H1918 V235 H1970"/>
+  <text class="rel-label" x="1878" y="322">0..*</text><text class="rel-label" x="1945" y="224">1</text>
+  <path class="rel" d="M1870 455 H1970"/>
+  <text class="rel-label" x="1878" y="444">0..*</text><text class="rel-label" x="1945" y="444">1</text>
+  <path class="rel" d="M2155 570 V600"/>
+  <text class="rel-label" x="2168" y="582">1</text><text class="rel-label" x="2168" y="598">0..*</text>
+  <path class="rel" d="M2155 750 V800"/>
+  <text class="rel-label" x="2168" y="765">0..*</text><text class="rel-label" x="2168" y="795">1</text>
+
+  <path class="rel" d="M1175 770 V1080"/>
+  <text class="rel-label" x="1188" y="804">1</text><text class="rel-label" x="1188" y="1068">0..*</text>
+  <path class="rel" d="M1370 1155 H1450"/>
+  <text class="rel-label" x="1379" y="1144">0..*</text><text class="rel-label" x="1425" y="1144">1</text>
+  <path class="rel" d="M1880 1200 H1920 V1265 H1970"/>
+  <text class="rel-label" x="1888" y="1189">0..*</text><text class="rel-label" x="1945" y="1254">1</text>
+
+  <!-- FACULTY -->
+  <g transform="translate(60 190)">
+    <rect class="panel" width="330" height="160"/>
+    <path class="head-blue" d="M0 14Q0 0 14 0H316Q330 0 330 14V50H0Z"/>
+    <text class="table-title" x="18" y="34">FACULTY</text>
+    <text class="key" x="18" y="82">PK</text><text class="field" x="65" y="82">FacultyID</text><text class="type" x="230" y="82">VARCHAR</text>
+    <line class="divider" x1="16" y1="98" x2="314" y2="98"/>
+    <text class="field" x="65" y="126">FacultyName</text>
+    <text class="field" x="65" y="151">Zone</text>
+  </g>
+
+  <!-- PASSENGER -->
+  <g transform="translate(40 470)">
+    <rect class="panel" width="370" height="260"/>
+    <path class="head-blue" d="M0 14Q0 0 14 0H356Q370 0 370 14V50H0Z"/>
+    <text class="table-title" x="18" y="34">PASSENGER</text>
+    <text class="key" x="18" y="81">PK</text><text class="field" x="65" y="81">PassengerID</text>
+    <line class="divider" x1="16" y1="96" x2="354" y2="96"/>
+    <text class="field" x="65" y="125">PassengerName</text>
+    <text class="field" x="65" y="154">PassengerRole</text>
+    <text class="field" x="65" y="183">PassengerGender</text>
+    <text class="field" x="65" y="212">PassengerAge</text><text class="type" x="282" y="212">NUMBER</text>
+    <text class="key" x="18" y="241">FK</text><text class="field" x="65" y="241">FacultyID</text>
+  </g>
+
+  <!-- BOOKING -->
+  <g transform="translate(490 505)">
+    <rect class="panel" width="390" height="255"/>
+    <path class="head-blue" d="M0 14Q0 0 14 0H376Q390 0 390 14V50H0Z"/>
+    <text class="table-title" x="18" y="34">BOOKING</text>
+    <text class="key" x="18" y="81">PK</text><text class="field" x="65" y="81">BookingID</text>
+    <line class="divider" x1="16" y1="96" x2="374" y2="96"/>
+    <text class="key" x="18" y="125">FK</text><text class="field" x="65" y="125">RegistrationNo</text>
+    <text class="field" x="65" y="154">BookingDate</text><text class="type" x="298" y="154">DATE</text>
+    <text class="field" x="65" y="183">DepartureZone</text>
+    <text class="field" x="65" y="212">DestinationZone</text>
+    <text class="key" x="18" y="241">FK</text><text class="field" x="65" y="241">PassengerID</text>
+  </g>
+
+  <!-- CAR -->
+  <g transform="translate(1000 530)">
+    <rect class="panel" width="350" height="240"/>
+    <path class="head-slate" d="M0 14Q0 0 14 0H336Q350 0 350 14V50H0Z"/>
+    <text class="table-title" x="18" y="34">CAR</text>
+    <text class="key" x="18" y="81">PK</text><text class="field" x="65" y="81">RegistrationNo</text>
+    <line class="divider" x1="16" y1="96" x2="334" y2="96"/>
+    <text class="field" x="65" y="126">CarModel</text>
+    <text class="field" x="65" y="156">ManufacturingYear</text>
+    <text class="field" x="65" y="186">CarBodyType</text>
+    <text class="field" x="65" y="216">NumSeats</text><text class="type" x="260" y="216">NUMBER</text>
+  </g>
+
+  <!-- MAINTENANCE -->
+  <g transform="translate(1450 250)">
+    <rect class="panel" width="420" height="290"/>
+    <path class="head-teal" d="M0 14Q0 0 14 0H406Q420 0 420 14V50H0Z"/>
+    <text class="table-title" x="18" y="34">MAINTENANCE</text>
+    <text class="key" x="18" y="81">PK</text><text class="field" x="65" y="81">MaintenanceID</text>
+    <line class="divider" x1="16" y1="96" x2="404" y2="96"/>
+    <text class="key" x="18" y="125">FK</text><text class="field" x="65" y="125">RegistrationNo</text>
+    <text class="field" x="65" y="157">MaintenanceDate</text><text class="type" x="325" y="157">DATE</text>
+    <text class="key" x="18" y="189">FK</text><text class="field" x="65" y="189">MaintenanceType</text>
+    <text class="field" x="65" y="221">MaintenanceCost</text><text class="type" x="325" y="221">NUMBER</text>
+    <text class="key" x="18" y="253">FK</text><text class="field" x="65" y="253">TeamID</text>
+  </g>
+
+  <!-- MAINTENANCE TYPE -->
+  <g transform="translate(1970 160)">
+    <rect class="panel" width="370" height="150"/>
+    <path class="head-teal" d="M0 14Q0 0 14 0H356Q370 0 370 14V50H0Z"/>
+    <text class="table-title" x="18" y="34">MAINTENANCETYPE</text>
+    <text class="key" x="18" y="82">PK</text><text class="field" x="65" y="82">MaintenanceType</text>
+    <line class="divider" x1="16" y1="98" x2="354" y2="98"/>
+    <text class="field" x="65" y="128">MaintenanceDescription</text>
+  </g>
+
+  <!-- MAINTENANCE TEAM -->
+  <g transform="translate(1970 390)">
+    <rect class="panel" width="370" height="180"/>
+    <path class="head-teal" d="M0 14Q0 0 14 0H356Q370 0 370 14V50H0Z"/>
+    <text class="table-title" x="18" y="34">MAINTENANCETEAM</text>
+    <text class="key" x="18" y="82">PK</text><text class="field" x="65" y="82">TeamID</text>
+    <line class="divider" x1="16" y1="98" x2="354" y2="98"/>
+    <text class="field" x="65" y="130">TeamLeader</text>
+    <text class="field" x="65" y="160">Phone</text><text class="type" x="270" y="160">NUMBER</text>
+  </g>
+
+  <!-- BELONGTO -->
+  <g transform="translate(1970 600)">
+    <rect class="panel" width="370" height="150"/>
+    <path class="head-teal" d="M0 14Q0 0 14 0H356Q370 0 370 14V50H0Z"/>
+    <text class="table-title" x="18" y="34">BELONGTO</text>
+    <text class="key" x="18" y="82">PK, FK</text><text class="field" x="105" y="82">TeamID</text>
+    <line class="divider" x1="16" y1="98" x2="354" y2="98"/>
+    <text class="key" x="18" y="128">PK, FK</text><text class="field" x="105" y="128">CenterID</text>
+  </g>
+
+  <!-- RESEARCH CENTER -->
+  <g transform="translate(1970 800)">
+    <rect class="panel" width="370" height="210"/>
+    <path class="head-teal" d="M0 14Q0 0 14 0H356Q370 0 370 14V50H0Z"/>
+    <text class="table-title" x="18" y="34">RESEARCHCENTER</text>
+    <text class="key" x="18" y="82">PK</text><text class="field" x="65" y="82">CenterID</text>
+    <line class="divider" x1="16" y1="98" x2="354" y2="98"/>
+    <text class="field" x="65" y="130">CenterName</text>
+    <text class="field" x="65" y="160">Phone</text><text class="type" x="270" y="160">NUMBER</text>
+    <text class="field" x="65" y="190">OpeningHour</text>
+  </g>
+
+  <!-- CAR ACCIDENT -->
+  <g transform="translate(990 1080)">
+    <rect class="panel" width="380" height="150"/>
+    <path class="head-orange" d="M0 14Q0 0 14 0H366Q380 0 380 14V50H0Z"/>
+    <text class="table-title" x="18" y="34">CARACCIDENT</text>
+    <text class="key" x="18" y="82">PK, FK</text><text class="field" x="105" y="82">RegistrationNo</text>
+    <line class="divider" x1="16" y1="98" x2="364" y2="98"/>
+    <text class="key" x="18" y="128">PK, FK</text><text class="field" x="105" y="128">AccidentID</text>
+  </g>
+
+  <!-- ACCIDENT INFO -->
+  <g transform="translate(1450 1080)">
+    <rect class="panel" width="430" height="240"/>
+    <path class="head-orange" d="M0 14Q0 0 14 0H416Q430 0 430 14V50H0Z"/>
+    <text class="table-title" x="18" y="34">ACCIDENTINFO</text>
+    <text class="key" x="18" y="82">PK</text><text class="field" x="65" y="82">AccidentID</text>
+    <line class="divider" x1="16" y1="98" x2="414" y2="98"/>
+    <text class="field" x="65" y="132">AccidentZone</text>
+    <text class="field" x="65" y="166">Car_Damage_Severity</text>
+    <text class="key" x="18" y="200">FK</text><text class="field" x="65" y="200">ErrorCode</text>
+  </g>
+
+  <!-- ERROR -->
+  <g transform="translate(1970 1190)">
+    <rect class="panel" width="370" height="150"/>
+    <path class="head-orange" d="M0 14Q0 0 14 0H356Q370 0 370 14V50H0Z"/>
+    <text class="table-title" x="18" y="34">ERROR</text>
+    <text class="key" x="18" y="82">PK</text><text class="field" x="65" y="82">ErrorCode</text>
+    <line class="divider" x1="16" y1="98" x2="354" y2="98"/>
+    <text class="field" x="65" y="128">ErrorMessage</text>
+  </g>
+
+  <g transform="translate(60 1495)">
+    <rect class="note" width="1820" height="80"/>
+    <text class="note-text" x="24" y="32"><tspan font-weight="700">Source limitation:</tspan><tspan dx="6">ACCIDENTINFO has no accident date/time attribute; a month dimension cannot be truthfully attached to accident facts.</tspan></text>
+    <text class="note-text" x="24" y="61">CARACCIDENT and BELONGTO preserve the two many-to-many relationships in the operational source.</text>
+  </g>
+  <text class="subtitle" x="2290" y="1550" text-anchor="end">Figure 1 · Operational ERD</text>
+</svg>

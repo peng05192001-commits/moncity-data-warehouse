@@ -1,0 +1,13 @@
+__pycache__/
+*.py[cod]
+.env
+.env.*
+data/raw/
+data/processed/
+*.gpkg
+*.qgz
+*.pdf
+*.docx
+*.pptx
+*.zip
+logs/

@@ -1,0 +1,4 @@
+car_body_type,number_of_seats,fleet_vehicles,booking_records,maintenance_records,total_maintenance_cost,accident_records_involving_body,severe_accident_records,bookings_per_vehicle,maintenance_cost_per_booking,accident_involvements_per_100_bookings,severe_share_pct
+BUS,40,10,3291,355,113500,305,78,329.10,34.49,9.27,25.57
+MINI BUS,20,10,3313,312,88800,323,97,331.30,26.80,9.75,30.03
+PEOPLE MOVER,10,10,3396,334,100600,371,2,339.60,29.62,10.92,0.54

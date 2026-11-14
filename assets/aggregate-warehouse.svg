@@ -1,0 +1,299 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="2600" height="1800" viewBox="0 0 2600 1800" role="img" aria-labelledby="title desc">
+  <title id="title">MonCity Warehouse Version 1 — Highest Aggregation</title>
+  <desc id="desc">Three aggregated fact tables for booking, maintenance, and accident analysis, including research-centre and car multi-value bridge structures.</desc>
+  <defs>
+    <filter id="shadow" x="-10%" y="-10%" width="120%" height="130%"><feDropShadow dx="0" dy="4" stdDeviation="6" flood-color="#0f172a" flood-opacity="0.13"/></filter>
+    <style>
+      .bg { fill: #f8fafc; }
+      .band-blue { fill: #eff6ff; stroke: #93c5fd; }
+      .band-teal { fill: #f0fdfa; stroke: #5eead4; }
+      .band-orange { fill: #fff7ed; stroke: #fdba74; }
+      .band { stroke-width: 2.5; rx: 22; }
+      .card { fill: #fff; stroke: #cbd5e1; stroke-width: 2; rx: 14; filter: url(#shadow); }
+      .fact { fill: #fff; stroke: #334155; stroke-width: 3; rx: 14; filter: url(#shadow); }
+      .h-dim { fill: #4f46e5; }
+      .h-fact-blue { fill: #1d4ed8; }
+      .h-fact-teal { fill: #0f766e; }
+      .h-fact-orange { fill: #c2410c; }
+      .h-group { fill: #7c3aed; }
+      .h-bridge { fill: #a16207; }
+      .name { fill: white; font: 700 23px 'Segoe UI', Arial, sans-serif; }
+      .field { fill: #1e293b; font: 18px 'Segoe UI', Arial, sans-serif; }
+      .key { fill: #0f172a; font: 700 17px 'Segoe UI', Arial, sans-serif; }
+      .measure { fill: #9a3412; font: 700 18px 'Segoe UI', Arial, sans-serif; }
+      .minor { fill: #64748b; font: 16px 'Segoe UI', Arial, sans-serif; }
+      .divider { stroke: #e2e8f0; stroke-width: 1.3; }
+      .line { fill: none; stroke: #475569; stroke-width: 3; stroke-linecap: round; stroke-linejoin: round; }
+      .multi { fill: none; stroke: #7c3aed; stroke-width: 3.5; stroke-linecap: round; stroke-linejoin: round; }
+      .cardinality { fill: #334155; font: 700 17px 'Segoe UI', Arial, sans-serif; paint-order: stroke; stroke: #f8fafc; stroke-width: 7; }
+      .title { fill: #0f172a; font: 800 39px 'Segoe UI', Arial, sans-serif; }
+      .subtitle { fill: #475569; font: 21px 'Segoe UI', Arial, sans-serif; }
+      .band-title { font: 800 23px 'Segoe UI', Arial, sans-serif; }
+      .grain { fill: #334155; font: 18px 'Segoe UI', Arial, sans-serif; }
+      .grain-strong { font-weight: 700; }
+      .callout { fill: #ffffff; stroke-width: 2; rx: 12; }
+      .callout-text { fill: #334155; font: 17px 'Segoe UI', Arial, sans-serif; }
+      .legend { fill: #334155; font: 17px 'Segoe UI', Arial, sans-serif; }
+    </style>
+  </defs>
+
+  <rect class="bg" width="2600" height="1800"/>
+  <text class="title" x="60" y="60">MonCity Data Warehouse — Version 1 (Highest Aggregation)</text>
+  <text class="subtitle" x="60" y="96">Three subject-area facts; one fact row per complete dimensional combination</text>
+  <g transform="translate(1810 34)">
+    <rect x="0" y="0" width="730" height="78" rx="12" fill="#fff" stroke="#cbd5e1" stroke-width="2"/>
+    <rect x="18" y="16" width="24" height="18" rx="3" fill="#4f46e5"/><text class="legend" x="51" y="31">dimension</text>
+    <rect x="160" y="16" width="24" height="18" rx="3" fill="#1d4ed8"/><text class="legend" x="193" y="31">fact</text>
+    <rect x="275" y="16" width="24" height="18" rx="3" fill="#7c3aed"/><text class="legend" x="308" y="31">group dimension</text>
+    <rect x="500" y="16" width="24" height="18" rx="3" fill="#a16207"/><text class="legend" x="533" y="31">bridge</text>
+    <text class="legend" x="18" y="62"><tspan font-weight="700">FK</tspan><tspan dx="6">foreign key</tspan><tspan dx="22" font-weight="700">Σ</tspan><tspan dx="6">additive measure</tspan><tspan dx="22">1 : M relationships shown on connectors</tspan></text>
+  </g>
+
+  <!-- DOMAIN BANDS -->
+  <rect class="band band-blue" x="30" y="130" width="2540" height="510"/>
+  <text class="band-title" x="58" y="167" fill="#1d4ed8">BOOKING AGGREGATE</text>
+  <text class="grain" x="320" y="167"><tspan class="grain-strong">Grain:</tspan><tspan dx="6">one row per Month × Faculty × Passenger Age Group × Car Body Type / Seat Count</tspan></text>
+
+  <rect class="band band-teal" x="30" y="660" width="2540" height="500"/>
+  <text class="band-title" x="58" y="697" fill="#0f766e">MAINTENANCE AGGREGATE</text>
+  <text class="grain" x="420" y="697"><tspan class="grain-strong">Grain:</tspan><tspan dx="6">one row per Car Body Type / Seat Count × Maintenance Type × Research-Centre Membership Group</tspan></text>
+
+  <rect class="band band-orange" x="30" y="1180" width="2540" height="535"/>
+  <text class="band-title" x="58" y="1217" fill="#c2410c">ACCIDENT AGGREGATE</text>
+  <text class="grain" x="355" y="1217"><tspan class="grain-strong">Grain:</tspan><tspan dx="6">one row per Involved-Car Group × Accident Zone × Error Code × Damage Severity</tspan></text>
+
+  <!-- BOOKING CONNECTORS -->
+  <path class="line" d="M420 295 H740 V360 H900"/>
+  <path class="line" d="M420 515 H740 V460 H900"/>
+  <path class="line" d="M1620 295 H1460 V360 H1400"/>
+  <path class="line" d="M1620 515 H1460 V460 H1400"/>
+  <text class="cardinality" x="430" y="283">1</text><text class="cardinality" x="867" y="349">M</text>
+  <text class="cardinality" x="430" y="503">1</text><text class="cardinality" x="867" y="449">M</text>
+  <text class="cardinality" x="1592" y="283">1</text><text class="cardinality" x="1428" y="349">M</text>
+  <text class="cardinality" x="1592" y="503">1</text><text class="cardinality" x="1428" y="449">M</text>
+
+  <!-- BOOKING DIMENSIONS -->
+  <g transform="translate(80 210)">
+    <rect class="card" width="340" height="205"/>
+    <path class="h-dim" d="M0 14Q0 0 14 0H326Q340 0 340 14V46H0Z"/>
+    <text class="name" x="16" y="31">DIM_MONTH</text>
+    <text class="key" x="16" y="76">PK</text><text class="field" x="55" y="76">MonthKey (YYYYMM)</text>
+    <line class="divider" x1="14" y1="92" x2="326" y2="92"/>
+    <text class="field" x="55" y="115">CalendarYear</text>
+    <text class="field" x="55" y="139">MonthNumber · MonthName</text>
+    <text class="field" x="55" y="163">MonthStartDate</text>
+    <text class="field" x="55" y="187">MonthLabel (YYYY-MM)</text>
+  </g>
+  <g transform="translate(80 430)">
+    <rect class="card" width="340" height="180"/>
+    <path class="h-dim" d="M0 14Q0 0 14 0H326Q340 0 340 14V46H0Z"/>
+    <text class="name" x="16" y="31">DIM_FACULTY</text>
+    <text class="key" x="16" y="76">PK</text><text class="field" x="55" y="76">FacultyKey</text>
+    <line class="divider" x1="14" y1="92" x2="326" y2="92"/>
+    <text class="field" x="55" y="120">FacultyID</text>
+    <text class="field" x="55" y="148">FacultyName</text>
+    <text class="field" x="55" y="174">FacultyZone</text>
+  </g>
+  <g transform="translate(1620 205)">
+    <rect class="card" width="390" height="200"/>
+    <path class="h-dim" d="M0 14Q0 0 14 0H376Q390 0 390 14V46H0Z"/>
+    <text class="name" x="16" y="31">DIM_AGE_GROUP</text>
+    <text class="key" x="16" y="76">PK</text><text class="field" x="55" y="76">AgeGroupKey</text>
+    <line class="divider" x1="14" y1="92" x2="376" y2="92"/>
+    <text class="field" x="55" y="120">AgeGroupName</text>
+    <text class="field" x="55" y="148">MinAge</text>
+    <text class="field" x="55" y="176">MaxAge  (NULL for 60+)</text>
+  </g>
+  <g transform="translate(1620 430)">
+    <rect class="card" width="390" height="180"/>
+    <path class="h-dim" d="M0 14Q0 0 14 0H376Q390 0 390 14V46H0Z"/>
+    <text class="name" x="16" y="31">DIM_CAR_BODY</text>
+    <text class="key" x="16" y="76">PK</text><text class="field" x="55" y="76">CarBodyKey</text>
+    <line class="divider" x1="14" y1="92" x2="376" y2="92"/>
+    <text class="field" x="55" y="124">CarBodyType</text>
+    <text class="field" x="55" y="154">NumSeats</text>
+  </g>
+  <g transform="translate(900 260)">
+    <rect class="fact" width="500" height="300"/>
+    <path class="h-fact-blue" d="M0 14Q0 0 14 0H486Q500 0 500 14V52H0Z"/>
+    <text class="name" x="18" y="35">FACT_BOOKING_AGG</text>
+    <text class="key" x="18" y="84">FK</text><text class="field" x="62" y="84">MonthKey</text>
+    <text class="key" x="18" y="116">FK</text><text class="field" x="62" y="116">FacultyKey</text>
+    <text class="key" x="18" y="148">FK</text><text class="field" x="62" y="148">AgeGroupKey</text>
+    <text class="key" x="18" y="180">FK</text><text class="field" x="62" y="180">CarBodyKey</text>
+    <line class="divider" x1="16" y1="202" x2="484" y2="202"/>
+    <text class="measure" x="18" y="238">Σ BookingRecordCount</text>
+    <text class="minor" x="18" y="273">Source BOOKING rows aggregated by all four keys</text>
+  </g>
+  <g transform="translate(2070 225)">
+    <rect class="callout" width="450" height="150" stroke="#93c5fd"/>
+    <text class="callout-text" x="20" y="34"><tspan font-weight="700">Age rules</tspan></text>
+    <text class="callout-text" x="20" y="66">Young adults: 18–35</text>
+    <text class="callout-text" x="20" y="96">Middle-aged adults: 36–59</text>
+    <text class="callout-text" x="20" y="126">Old-aged adults: 60 and over</text>
+  </g>
+
+  <!-- MAINTENANCE CONNECTORS -->
+  <path class="line" d="M500 800 H620 V820 H690"/>
+  <path class="line" d="M500 1010 H620 V980 H690"/>
+  <path class="multi" d="M1190 905 H1320"/>
+  <path class="multi" d="M1710 855 H1760"/>
+  <path class="multi" d="M2100 855 H2150"/>
+  <text class="cardinality" x="510" y="789">1</text><text class="cardinality" x="656" y="809">M</text>
+  <text class="cardinality" x="510" y="999">1</text><text class="cardinality" x="656" y="969">M</text>
+  <text class="cardinality" x="1202" y="893">M</text><text class="cardinality" x="1293" y="893">1</text>
+  <text class="cardinality" x="1720" y="843">1</text><text class="cardinality" x="1735" y="843">M</text>
+  <text class="cardinality" x="2110" y="843">M</text><text class="cardinality" x="2124" y="843">1</text>
+
+  <g transform="translate(80 735)">
+    <rect class="card" width="420" height="150"/>
+    <path class="h-dim" d="M0 14Q0 0 14 0H406Q420 0 420 14V46H0Z"/>
+    <text class="name" x="16" y="31">DIM_CAR_BODY</text>
+    <text class="key" x="16" y="78">PK</text><text class="field" x="55" y="78">CarBodyKey (shared)</text>
+    <line class="divider" x1="14" y1="94" x2="406" y2="94"/>
+    <text class="minor" x="20" y="123">Conformed dimension shared with booking</text>
+  </g>
+  <g transform="translate(80 930)">
+    <rect class="card" width="420" height="190"/>
+    <path class="h-dim" d="M0 14Q0 0 14 0H406Q420 0 420 14V46H0Z"/>
+    <text class="name" x="16" y="31">DIM_MAINTENANCE_TYPE</text>
+    <text class="key" x="16" y="78">PK</text><text class="field" x="55" y="78">MaintenanceTypeKey</text>
+    <line class="divider" x1="14" y1="94" x2="406" y2="94"/>
+    <text class="field" x="55" y="124">MaintenanceType</text>
+    <text class="field" x="55" y="154">MaintenanceDescription</text>
+  </g>
+  <g transform="translate(690 755)">
+    <rect class="fact" width="500" height="320"/>
+    <path class="h-fact-teal" d="M0 14Q0 0 14 0H486Q500 0 500 14V52H0Z"/>
+    <text class="name" x="18" y="35">FACT_MAINTENANCE_AGG</text>
+    <text class="key" x="18" y="88">FK</text><text class="field" x="62" y="88">CarBodyKey</text>
+    <text class="key" x="18" y="124">FK</text><text class="field" x="62" y="124">MaintenanceTypeKey</text>
+    <text class="key" x="18" y="160">FK</text><text class="field" x="62" y="160">CentreGroupKey</text>
+    <line class="divider" x1="16" y1="184" x2="484" y2="184"/>
+    <text class="measure" x="18" y="222">Σ MaintenanceRecordCount</text>
+    <text class="measure" x="18" y="258">Σ TotalMaintenanceCost</text>
+    <text class="minor" x="18" y="296">A team’s complete centre set forms one group</text>
+  </g>
+  <g transform="translate(1320 735)">
+    <rect class="card" width="390" height="240"/>
+    <path class="h-group" d="M0 14Q0 0 14 0H376Q390 0 390 14V46H0Z"/>
+    <text class="name" x="16" y="31">DIM_CENTRE_GROUP</text>
+    <text class="key" x="16" y="78">PK</text><text class="field" x="55" y="78">CentreGroupKey</text>
+    <line class="divider" x1="14" y1="94" x2="376" y2="94"/>
+    <text class="field" x="55" y="124">GroupList</text>
+    <text class="field" x="55" y="154">GroupSize</text>
+    <text class="field" x="55" y="184">WeightFactor (= 1 / GroupSize)</text>
+    <text class="minor" x="20" y="218">Distinct centre-membership combinations</text>
+  </g>
+  <g transform="translate(1760 765)">
+    <rect class="card" width="340" height="180"/>
+    <path class="h-bridge" d="M0 14Q0 0 14 0H326Q340 0 340 14V46H0Z"/>
+    <text class="name" x="16" y="31">BRIDGE_CENTRE_GROUP</text>
+    <text class="key" x="16" y="82">PK, FK</text><text class="field" x="104" y="82">CentreGroupKey</text>
+    <line class="divider" x1="14" y1="99" x2="326" y2="99"/>
+    <text class="key" x="16" y="132">PK, FK</text><text class="field" x="104" y="132">CentreKey</text>
+  </g>
+  <g transform="translate(2150 740)">
+    <rect class="card" width="370" height="220"/>
+    <path class="h-dim" d="M0 14Q0 0 14 0H356Q370 0 370 14V46H0Z"/>
+    <text class="name" x="16" y="31">DIM_RESEARCH_CENTRE</text>
+    <text class="key" x="16" y="78">PK</text><text class="field" x="55" y="78">CentreKey</text>
+    <line class="divider" x1="14" y1="94" x2="356" y2="94"/>
+    <text class="field" x="55" y="124">CentreID</text>
+    <text class="field" x="55" y="154">CentreName</text>
+    <text class="field" x="55" y="184">Phone · OpeningHour</text>
+  </g>
+  <g transform="translate(1320 1010)">
+    <rect class="callout" width="1200" height="110" stroke="#5eead4"/>
+    <text class="callout-text" x="20" y="34"><tspan font-weight="700">Bridge rule:</tspan><tspan dx="6">filter a named centre (for example CE04) through the bridge and sum the unweighted maintenance count once per fact group.</tspan></text>
+    <text class="callout-text" x="20" y="72">Use WeightFactor only when allocating totals across every centre member; this prevents double counting in all-centre roll-ups.</text>
+  </g>
+
+  <!-- ACCIDENT CONNECTORS -->
+  <path class="line" d="M440 1305 H560 V1405 H620"/>
+  <path class="line" d="M440 1488 H550 V1470 H620"/>
+  <path class="line" d="M440 1650 H560 V1545 H620"/>
+  <path class="multi" d="M1120 1460 H1230"/>
+  <path class="multi" d="M1650 1385 H1710"/>
+  <path class="multi" d="M2050 1385 H2110"/>
+  <text class="cardinality" x="450" y="1293">1</text><text class="cardinality" x="588" y="1393">M</text>
+  <text class="cardinality" x="450" y="1476">1</text><text class="cardinality" x="588" y="1458">M</text>
+  <text class="cardinality" x="450" y="1638">1</text><text class="cardinality" x="588" y="1533">M</text>
+  <text class="cardinality" x="1130" y="1448">M</text><text class="cardinality" x="1203" y="1448">1</text>
+  <text class="cardinality" x="1660" y="1373">1</text><text class="cardinality" x="1685" y="1373">M</text>
+  <text class="cardinality" x="2060" y="1373">M</text><text class="cardinality" x="2085" y="1373">1</text>
+
+  <g transform="translate(70 1240)">
+    <rect class="card" width="370" height="150"/>
+    <path class="h-dim" d="M0 14Q0 0 14 0H356Q370 0 370 14V46H0Z"/>
+    <text class="name" x="16" y="31">DIM_ACCIDENT_ZONE</text>
+    <text class="key" x="16" y="80">PK</text><text class="field" x="55" y="80">AccidentZoneKey</text>
+    <line class="divider" x1="14" y1="96" x2="356" y2="96"/>
+    <text class="field" x="55" y="126">AccidentZone</text>
+  </g>
+  <g transform="translate(70 1410)">
+    <rect class="card" width="370" height="175"/>
+    <path class="h-dim" d="M0 14Q0 0 14 0H356Q370 0 370 14V46H0Z"/>
+    <text class="name" x="16" y="31">DIM_ERROR</text>
+    <text class="key" x="16" y="80">PK</text><text class="field" x="55" y="80">ErrorKey</text>
+    <line class="divider" x1="14" y1="96" x2="356" y2="96"/>
+    <text class="field" x="55" y="126">ErrorCode</text>
+    <text class="field" x="55" y="154">ErrorMessage</text>
+  </g>
+  <g transform="translate(70 1605)">
+    <rect class="card" width="370" height="100"/>
+    <path class="h-dim" d="M0 14Q0 0 14 0H356Q370 0 370 14V46H0Z"/>
+    <text class="name" x="16" y="31">DIM_SEVERITY</text>
+    <text class="key" x="16" y="78">PK</text><text class="field" x="55" y="78">SeverityKey · SeverityName</text>
+  </g>
+  <g transform="translate(620 1310)">
+    <rect class="fact" width="500" height="320"/>
+    <path class="h-fact-orange" d="M0 14Q0 0 14 0H486Q500 0 500 14V52H0Z"/>
+    <text class="name" x="18" y="35">FACT_ACCIDENT_AGG</text>
+    <text class="key" x="18" y="88">FK</text><text class="field" x="62" y="88">CarGroupKey</text>
+    <text class="key" x="18" y="124">FK</text><text class="field" x="62" y="124">AccidentZoneKey</text>
+    <text class="key" x="18" y="160">FK</text><text class="field" x="62" y="160">ErrorKey</text>
+    <text class="key" x="18" y="196">FK</text><text class="field" x="62" y="196">SeverityKey</text>
+    <line class="divider" x1="16" y1="218" x2="484" y2="218"/>
+    <text class="measure" x="18" y="258">Σ AccidentRecordCount</text>
+    <text class="minor" x="18" y="294">Each source accident contributes to one car group</text>
+  </g>
+  <g transform="translate(1230 1250)">
+    <rect class="card" width="420" height="240"/>
+    <path class="h-group" d="M0 14Q0 0 14 0H406Q420 0 420 14V46H0Z"/>
+    <text class="name" x="16" y="31">DIM_CAR_GROUP</text>
+    <text class="key" x="16" y="78">PK</text><text class="field" x="55" y="78">CarGroupKey</text>
+    <line class="divider" x1="14" y1="94" x2="406" y2="94"/>
+    <text class="field" x="55" y="124">GroupList</text>
+    <text class="field" x="55" y="154">GroupSize</text>
+    <text class="field" x="55" y="184">WeightFactor (= 1 / GroupSize)</text>
+    <text class="minor" x="20" y="218">Distinct involved-car combinations</text>
+  </g>
+  <g transform="translate(1710 1295)">
+    <rect class="card" width="340" height="180"/>
+    <path class="h-bridge" d="M0 14Q0 0 14 0H326Q340 0 340 14V46H0Z"/>
+    <text class="name" x="16" y="31">BRIDGE_CAR_GROUP</text>
+    <text class="key" x="16" y="82">PK, FK</text><text class="field" x="104" y="82">CarGroupKey</text>
+    <line class="divider" x1="14" y1="99" x2="326" y2="99"/>
+    <text class="key" x="16" y="132">PK, FK</text><text class="field" x="104" y="132">CarKey</text>
+  </g>
+  <g transform="translate(2110 1250)">
+    <rect class="card" width="410" height="240"/>
+    <path class="h-dim" d="M0 14Q0 0 14 0H396Q410 0 410 14V46H0Z"/>
+    <text class="name" x="16" y="31">DIM_CAR</text>
+    <text class="key" x="16" y="78">PK</text><text class="field" x="55" y="78">CarKey</text>
+    <line class="divider" x1="14" y1="94" x2="396" y2="94"/>
+    <text class="field" x="55" y="124">RegistrationNo</text>
+    <text class="field" x="55" y="154">CarModel</text>
+    <text class="field" x="55" y="184">ManufacturingYear</text>
+    <text class="field" x="55" y="214">CarBodyType · NumSeats</text>
+  </g>
+  <g transform="translate(1230 1530)">
+    <rect class="callout" width="1290" height="150" stroke="#fdba74"/>
+    <text class="callout-text" x="20" y="34"><tspan font-weight="700">Bridge rule:</tspan><tspan dx="6">filter Car01 / Car05 / Car06 through BRIDGE_CAR_GROUP and sum the unweighted accident count.</tspan></text>
+    <text class="callout-text" x="20" y="70">WeightFactor supports allocated all-car totals when an accident involves several cars.</text>
+    <text class="callout-text" x="20" y="112"><tspan font-weight="700" fill="#9a3412">No accident date exists in the source;</tspan><tspan dx="6">therefore no MonthKey is attached to FACT_ACCIDENT_AGG.</tspan></text>
+  </g>
+
+  <text class="subtitle" x="2520" y="1770" text-anchor="end">Figure 2 · Version 1 dimensional model</text>
+</svg>
